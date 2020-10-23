@@ -1,0 +1,64 @@
+<nz-layout class="maxsize">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-submenu nzTitle="User" nzIcon="user">
+        <ul>
+          <li nz-menu-item>Tom</li>
+          <li nz-menu-item>Bill</li>
+          <li nz-menu-item>Alex</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Games">
+        <ul>
+          <li nz-menu-item  [routerLink]="['/admin-panel/games']">Game list</li>
+          <li nz-menu-item [routerLink]="['/admin-panel/add-game']">Add game</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Genres" >
+        <ul>
+          <li nz-menu-item [routerLink]="['/admin-panel/genres']">Genre list</li>
+          <li nz-menu-item [routerLink]="['/admin-panel/add-genre']">Add genre</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Developers" >
+        <ul>
+          <li nz-menu-item [routerLink]="['/admin-panel/developers']">Developer list</li>
+          <li nz-menu-item [routerLink]="['/admin-panel/add-developer']">Add developer</li>
+        </ul>
+      </li>
+
+      <!-- <li nz-submenu nzTitle="Products" nzIcon="shopping-cart">
+
+        <ul>
+          <li nz-menu-item [routerLink]="['/admin-panel/games']">Games</li>
+
+          <li nz-menu-item [routerLink]="['/admin-panel/genres']">Genres</li>
+          <li nz-menu-item [routerLink]="['/admin-panel/developers']">Developers</li>
+
+
+        </ul>
+      </li> -->
+
+      <li nz-menu-item>
+        <i nz-icon nzType="setting"></i>
+        <span>Setting</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"></i>
+    </nz-header>
+    <nz-content>
+      <nz-breadcrumb>
+
+      </nz-breadcrumb>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>
