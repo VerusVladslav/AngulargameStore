@@ -1,3 +1,21 @@
-<p>
-  add-genre works!
-</p>
+
+<div class="container">
+
+
+<form #addForm="ngForm" (ngSubmit)="sendNewGenre(); addForm.reset()">
+
+
+  <div class="forms">
+
+
+  <div class="form-group ">
+    <label for="Genre">Genre</label>
+      <input [(ngModel)]="newGenre" type="text" class="form-control" id="genre" name="genre" aria-describedby="Title"
+        placeholder="Name">
+   </div>
+
+
+  <button type="submit"  class="btn btn-primary">Add</button>
+  </div>
+  </form>
+</div>

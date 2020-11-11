@@ -1,0 +1,55 @@
+<!-- <div class="card mb-3"  >
+  <div class="row no-gutters" >
+    <div class="col-md-4">
+      <img  name="image" id="image" [src]="InfoGame.imageURL" class="card-img" alt="">
+    </div>
+    <div class="col-md-8 mycard">
+      <div class="card-body" >
+
+
+          <h5  name="title" id="title" class="card-title">{{InfoGame.title}}</h5>
+          <p  name="description" id="description" class="card-text">{{InfoGame.description}}</p>
+          <p  name="price" id="price" class="card-text">{{InfoGame.price}} $</p>
+
+          <p  name="year" id="year" class="card-text"><small class="text-muted">{{InfoGame.year}}</small></p>
+
+
+
+      </div>
+
+
+
+          <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+
+
+
+    </div>
+  </div>
+</div> -->
+
+
+<div class="w3-main" >
+  <i class="fa fa-bars w3-button w3-white w3-hide-large w3-xlarge w3-margin-left w3-margin-top" onclick="w3_open()"></i>
+  <a href="javascript:void(0)" class="w3-hide-large w3-red w3-button w3-right w3-margin-top w3-margin-right" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-pencil"></i></a>
+
+  <div id="Borge" class="w3-container person">
+    <br>
+    <img class="w3-round  w3-animate-top"name="image" id="image" [src]="InfoGame.imageURL" >
+    <h5  name="title" id="title" class="card-title">{{InfoGame.title}}</h5>
+    <h4 name="year" id="year"><i class="fa fa-clock-o"></i>Year: {{InfoGame.year}}</h4>
+    <h4  name="price" id="price" class="card-text">{{InfoGame.price}} $</h4>
+    <hr>
+
+  </div>
+  <div class="desc">
+<p>
+ <b>Developer :</b>  {{InfoGame.developer}}
+</p>
+<p>
+  <b>Genre :</b> {{InfoGame.genre}}
+</p>
+    <p>
+      {{InfoGame.description}}
+    </p>
+  </div>
+</div>

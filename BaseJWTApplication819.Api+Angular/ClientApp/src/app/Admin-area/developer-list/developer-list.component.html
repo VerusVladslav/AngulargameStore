@@ -9,7 +9,7 @@
     <tr *ngFor="let data of myTable.data">
      
       <td>{{ data.name }}</td>
-      <td><button type="button"  class="btn btn-primary">Edit</button></td>
+      <td><button type="button" (click)="editElement(data.id)"  class="btn btn-primary">Edit</button></td>
       <td><button type="button" (click)="removeElement(data.id)" class="btn btn-danger">Delete</button></td>
 
 

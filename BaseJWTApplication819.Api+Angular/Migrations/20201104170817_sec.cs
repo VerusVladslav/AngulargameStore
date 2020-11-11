@@ -209,6 +209,7 @@ namespace BaseJWTApplication819.Api_Angular.Migrations
                     Year = table.Column<int>(nullable: false),
                     ImageURL = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
+                    GameKey = table.Column<string>(nullable: false),
                     GenreId = table.Column<int>(nullable: true),
                     DeveloperId = table.Column<int>(nullable: true),
                     UserAdditionalInfoId = table.Column<string>(nullable: true)
@@ -232,6 +233,33 @@ namespace BaseJWTApplication819.Api_Angular.Migrations
                         name: "FK_tblGame_tblUserAdditionalInfo_UserAdditionalInfoId",
                         column: x => x.UserAdditionalInfoId,
                         principalTable: "tblUserAdditionalInfo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tblRoderList",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(nullable: true),
+                    GameId = table.Column<int>(nullable: true),
+                    IsAccept = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tblRoderList", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_tblRoderList_tblGame_GameId",
+                        column: x => x.GameId,
+                        principalTable: "tblGame",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_tblRoderList_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -289,6 +317,16 @@ namespace BaseJWTApplication819.Api_Angular.Migrations
                 name: "IX_tblGame_UserAdditionalInfoId",
                 table: "tblGame",
                 column: "UserAdditionalInfoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tblRoderList_GameId",
+                table: "tblRoderList",
+                column: "GameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tblRoderList_UserId",
+                table: "tblRoderList",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -309,10 +347,13 @@ namespace BaseJWTApplication819.Api_Angular.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "tblGame");
+                name: "tblRoderList");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "tblGame");
 
             migrationBuilder.DropTable(
                 name: "tblDeveloper");

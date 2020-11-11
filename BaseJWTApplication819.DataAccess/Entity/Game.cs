@@ -22,6 +22,9 @@ namespace BaseJWTApplication819.DataAccess.Entity
         [Required]
         public string Description { get; set; }
 
+        [Required]
+        public string GameKey { get; set; }
+
         public virtual Genre Genre { get; set; }
         public virtual Developer Developer { get; set; }
     }

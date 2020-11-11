@@ -1,4 +1,6 @@
 
+<div class="container">
+
 
 <form #addForm="ngForm" (ngSubmit)="sendNewDeveloper(); addForm.reset()">
 
@@ -9,10 +11,11 @@
 <div class="form-group ">
   <label for="Developer">Developer</label>
     <input [(ngModel)]="newDeveloper" type="text" class="form-control" id="developer" name="developer" aria-describedby="Title"
-      placeholder="Developer">
+      placeholder="Name">
  </div>
 
 
 <button type="submit"  class="btn btn-primary">Add</button>
 </div>
 </form>
+</div>

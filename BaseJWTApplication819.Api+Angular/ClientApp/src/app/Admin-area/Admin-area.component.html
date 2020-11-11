@@ -1,12 +1,12 @@
 <nz-layout class="maxsize">
   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-    <div class="logo"></div>
+   
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-submenu nzTitle="User" nzIcon="user">
+
+      <li nz-submenu nzTitle="Orders" >
         <ul>
-          <li nz-menu-item>Tom</li>
-          <li nz-menu-item>Bill</li>
-          <li nz-menu-item>Alex</li>
+          <li nz-menu-item [routerLink]="['/admin-panel']">Order list</li>
+
         </ul>
       </li>
       <li nz-submenu nzTitle="Games">
@@ -28,22 +28,6 @@
         </ul>
       </li>
 
-      <!-- <li nz-submenu nzTitle="Products" nzIcon="shopping-cart">
-
-        <ul>
-          <li nz-menu-item [routerLink]="['/admin-panel/games']">Games</li>
-
-          <li nz-menu-item [routerLink]="['/admin-panel/genres']">Genres</li>
-          <li nz-menu-item [routerLink]="['/admin-panel/developers']">Developers</li>
-
-
-        </ul>
-      </li> -->
-
-      <li nz-menu-item>
-        <i nz-icon nzType="setting"></i>
-        <span>Setting</span>
-      </li>
     </ul>
   </nz-sider>
   <nz-layout>
@@ -56,9 +40,10 @@
 
       </nz-breadcrumb>
       <div class="inner-content">
+
         <router-outlet></router-outlet>
       </div>
     </nz-content>
-    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+    
   </nz-layout>
 </nz-layout>

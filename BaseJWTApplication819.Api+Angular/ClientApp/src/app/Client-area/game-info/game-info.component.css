@@ -1,0 +1,32 @@
+
+i{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    padding: 5px;
+    border: 1px solid green;
+    color: green;
+  }
+
+
+
+  img {
+    height: 300px;
+  }
+  .card {
+  margin-top:40px;
+padding-right: 40px;
+
+  }
+
+  .person{
+    float: left;
+  }
+
+  .desc{
+
+    margin-left: 300px;
+
+    padding-top: 30px;
+  }

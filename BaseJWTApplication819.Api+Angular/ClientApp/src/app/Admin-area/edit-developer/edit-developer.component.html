@@ -1,0 +1,21 @@
+
+<div class="container">
+
+
+<form #editForm="ngForm" (ngSubmit)="sendDeveloper(); editForm.reset()">
+
+
+  <div class="forms">
+  
+  
+  <div class="form-group ">
+    <label for="Developer">Developer</label>
+      <input [(ngModel)]="Developer.name" type="text" class="form-control" id="developer" name="developer" aria-describedby="Title"
+        placeholder="Name">
+   </div>
+  
+  
+  <button type="submit"  class="btn btn-primary">Edit</button>
+  </div>
+  </form>
+</div>

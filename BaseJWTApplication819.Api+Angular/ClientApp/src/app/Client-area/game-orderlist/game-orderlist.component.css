@@ -1,0 +1,45 @@
+
+
+.mycard{
+  float: left;
+
+}
+
+.info-btn{
+  position: absolute;
+  bottom: 20px;
+  right: 80px;
+}
+
+.addgame{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+  padding: 5px;
+  border: 1px solid green;
+  color: green;
+  cursor: pointer;
+}
+
+.removegame{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+  padding: 5px;
+  border: 1px solid red;
+  color: red;
+  cursor: pointer;
+
+}
+
+img {
+  max-width: 150px;
+  min-height: 200px;
+}
+.card {
+margin-top:40px;
+
+width: 70%;
+}

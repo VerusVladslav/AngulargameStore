@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseJWTApplication819.Api_Angular.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20201023154015_sec")]
+    [Migration("20201104170817_sec")]
     partial class sec
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,10 @@ namespace BaseJWTApplication819.Api_Angular.Migrations
 
                     b.Property<int?>("DeveloperId")
                         .HasColumnType("int");
+
+                    b.Property<string>("GameKey")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("GenreId")
                         .HasColumnType("int");
@@ -98,6 +102,31 @@ namespace BaseJWTApplication819.Api_Angular.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tblGenre");
+                });
+
+            modelBuilder.Entity("BaseJWTApplication819.DataAccess.Entity.OrderList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("GameId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsAccept")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("tblRoderList");
                 });
 
             modelBuilder.Entity("BaseJWTApplication819.DataAccess.Entity.User", b =>
@@ -331,6 +360,17 @@ namespace BaseJWTApplication819.Api_Angular.Migrations
                     b.HasOne("BaseJWTApplication819.DataAccess.Entity.UserAdditionalInfo", null)
                         .WithMany("Games")
                         .HasForeignKey("UserAdditionalInfoId");
+                });
+
+            modelBuilder.Entity("BaseJWTApplication819.DataAccess.Entity.OrderList", b =>
+                {
+                    b.HasOne("BaseJWTApplication819.DataAccess.Entity.Game", "Game")
+                        .WithMany()
+                        .HasForeignKey("GameId");
+
+                    b.HasOne("BaseJWTApplication819.DataAccess.Entity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("BaseJWTApplication819.DataAccess.Entity.UserAdditionalInfo", b =>

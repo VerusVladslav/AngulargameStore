@@ -1,0 +1,23 @@
+<nz-table #myTable [nzData]="Orderdto" nzTableLayout="fixed">
+  <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn">{{ column.title }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of myTable.data">
+
+      <td>{{data.userLogin}}</td>
+      <td><img [src]="data.game.imageURL" width="50px"/></td>
+      <td>{{data.game.title}}</td>
+
+
+      <td></td>
+      <td *ngIf="!data.isAccept" ><button type="button" (click)="AcceptOrder(data.id)"   class="btn btn-success">Accept</button></td>
+      <td *ngIf="data.isAccept" >
+        <div  class="btn  accepted">Accepted</div></td>
+
+
+    </tr>
+  </tbody>
+</nz-table>

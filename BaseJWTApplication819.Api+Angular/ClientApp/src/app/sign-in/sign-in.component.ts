@@ -46,7 +46,7 @@ export class SignInComponent implements OnInit {
             } else if (decoded.roles === 'User') {
               this.router.navigate(['/client-panel']);
             }
-            localStorage.setItem('role', decoded.roles);
+           localStorage.setItem('role', decoded.roles);
             this.authService.statusLogin.emit(true);
           } else {
             for (let i = 0; i < data.errors.length; i++) {
@@ -55,7 +55,7 @@ export class SignInComponent implements OnInit {
           }
           setTimeout(() => {
             this.spinner.hide();
-          }, 1000);
+          }, 1500);
         }
       );
     }

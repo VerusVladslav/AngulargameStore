@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Developer } from 'src/app/Models/developer.model';
 import { GameService } from 'src/app/Services/game.service';
@@ -11,7 +13,9 @@ import { GameService } from 'src/app/Services/game.service';
 export class DeveloperListComponent implements OnInit {
 
   constructor(private gameService: GameService,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService,
+    private notifier: NotifierService,
+    private router: Router) { }
 
     listOfData: Developer[] = [];
     listOfColumn = [
@@ -31,10 +35,21 @@ export class DeveloperListComponent implements OnInit {
     this.gameService.removeDeveloper(id).subscribe(
     Data => {
       console.log(Data);
-      this.spinner.hide();
+      if (Data.status === 200) {
+
+        this.notifier.notify('success', 'Developer removed !');
+        this.ngOnInit();
+      } else {
+        for (let i = 0; i < Data.errors.length; i++) {
+          this.notifier.notify('error', Data.errors[i]);
+        }
+      }
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
     }
   );
-  this.ngOnInit();
+
     }
 
 ngOnInit() {
@@ -43,6 +58,14 @@ this.gameService.getAllDevelopers().subscribe(data => {
 this.listOfData = data;
 this.spinner.hide();
 });
+}
+
+editElement(id: number) {
+  this.spinner.show();
+  this.gameService.getEditDeveloperFromProject(id);
+  console.log(id);
+  this.spinner.hide();
+  this.router.navigate(['/admin-panel/edit-developer']);
 }
 
 }

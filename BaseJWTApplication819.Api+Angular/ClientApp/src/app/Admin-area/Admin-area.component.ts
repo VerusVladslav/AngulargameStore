@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminAreaComponent implements OnInit {
 
   constructor() { }
-isCollapsed = false;
+  isCollapsed = false;
   ngOnInit() {
   }
 

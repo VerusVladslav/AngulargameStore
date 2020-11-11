@@ -1,0 +1,18 @@
+
+<form #editForm="ngForm" (ngSubmit)="sendGenre(); editForm.reset()">
+
+
+  <div class="forms">
+
+<div class="container">
+  <div class="form-group ">
+    <label for="Genre">Genre</label>
+      <input [(ngModel)]="Genre.name" type="text" class="form-control" id="genre" name="genre" aria-describedby="Title"
+        >
+   </div>
+
+
+  <button type="submit"  class="btn btn-primary">Edit</button>
+  </div>
+  
+</div>

@@ -8,8 +8,6 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { DemoNgZorroAntdModule } from './ng-zorro.module';
-import { ProductListComponent } from './Admin-area/product-list/product-list.component';
-
 
 
 
@@ -26,13 +24,24 @@ import {DeveloperListComponent} from './Admin-area/developer-list/developer-list
 import {AddGameComponent} from './Admin-area/add-game/add-game.component';
 import {AddDeveloperComponent} from './Admin-area/add-developer/add-developer.component';
 import {AddGenreComponent} from './Admin-area/add-genre/add-genre.component';
-
+import {EditGenreComponent} from './Admin-area/edit-genre/edit-genre.component';
+import {EditGameComponent} from './Admin-area/edit-game/edit-game.component';
+import {EditDeveloperComponent} from './Admin-area/edit-developer/edit-developer.component';
+import {GameClientListComponent} from './Client-area/game-client-list/game-client-list.component';
+import {GameOrderlistComponent} from './Client-area/game-orderlist/game-orderlist.component';
+import {GameInfoComponent} from './Client-area/game-info/game-info.component';
+import {OrderListComponent} from './Admin-area/OrderList/OrderList.component';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { TokenInterceptor } from './interceptor';
+ import { Ng2SearchPipeModule } from 'ng2-search-filter';
+ import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { Page404Component } from './page404/page404.component';
+import { NzListModule } from 'ng-zorro-antd/list';
 
 const configNotifier: NotifierOptions = {
   position: {
@@ -58,14 +67,21 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ClientAreaComponent,
     SignUpComponent,
     SignInComponent,
-    ProductListComponent,
     GenreListComponent,
     DeveloperListComponent,
     GameListComponent,
     AddGenreComponent,
     AddDeveloperComponent,
-    AddGameComponent
-  ],
+    AddGameComponent,
+    EditGenreComponent,
+    EditDeveloperComponent,
+    EditGameComponent,
+    GameClientListComponent,
+    GameOrderlistComponent,
+    GameInfoComponent,
+    OrderListComponent,
+      Page404Component
+   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     NotifierModule.withConfig(configNotifier),
@@ -75,6 +91,11 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NgxSpinnerModule,
     BrowserAnimationsModule,
     DemoNgZorroAntdModule,
+    NzModalModule,
+    Ng2SearchPipeModule,
+    NzListModule
+
+
   ],
   providers: [
     NgxSpinnerService,

@@ -1,0 +1,52 @@
+<form nz-form #editForm="ngForm" (ngSubmit)="sendGame(); editForm.reset()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Title</nz-form-label>
+    <nz-form-control nzHasFeedback [nzSpan]="12" nzErrorTip="Input is required">
+      <input nz-input [(ngModel)]="EditGame.title" name="Title"  id="Title" required />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Image</nz-form-label>
+    <nz-form-control nzHasFeedback [nzSpan]="12" nzErrorTip="MinLength is 6">
+      <input nz-input [(ngModel)]="EditGame.imageURL"  id="ImageURL" name="ImageURL" minlength="6" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Year</nz-form-label>
+    <nz-input-number [(ngModel)]="EditGame.year"  [nzMin]="1950"   name="Year" id="Year" [nzMax]="2020" [nzStep]="1"></nz-input-number>
+
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Price</nz-form-label>
+    <nz-form-control nzHasFeedback [nzSpan]="12" >
+      <nz-input-number [(ngModel)]="EditGame.price" name="Price" id="Price"   [nzMin]="1"    [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5" >Developer</nz-form-label>
+    <nz-select  [(ngModel)]="EditGame.developer"  name="Developer" id="Developer">
+      <nz-option *ngFor="let data of listOfDevelopers"  [(nzValue)]="data" [nzLabel]="data"></nz-option>
+    </nz-select>
+</nz-form-item>
+<nz-form-item>
+  <nz-form-label  [nzSpan]="5" >Genre</nz-form-label>
+  <nz-select [(ngModel)]="EditGame.genre" name="Genre" id="Genre">
+    <nz-option *ngFor="let data of listOfGenres"   [(nzValue)]="data" [nzLabel]="data"></nz-option>
+  </nz-select>
+</nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5" nzRequired>Description</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzErrorTip="Please write something here!">
+      <textarea nz-input [(ngModel)]="EditGame.description" name="Description" id="Description"  placeholder="Description" [nzAutosize]="{ minRows: 3, maxRows: 5 }"></textarea>
+
+     </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+
+      </nz-form-control>
+    </nz-form-item>
+    <button type="submit"  class="btn marginleft btn-primary">Edit</button>
+
+</form>

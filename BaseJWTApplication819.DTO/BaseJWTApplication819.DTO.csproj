@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BaseJWTApplication819.DataAccess\BaseJWTApplication819.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

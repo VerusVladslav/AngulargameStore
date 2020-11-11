@@ -1,0 +1,68 @@
+.accepted{
+  background-color: white;
+  border-color: green;
+  color: green;
+}
+
+.mycard{
+  float: left;
+
+}
+
+.info-btn{
+  position: absolute;
+  bottom: 20px;
+  right: 80px;
+}
+
+.addgame{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+  padding: 5px;
+  border: 1px solid green;
+  color: green;
+  cursor: pointer;
+}
+
+h4 {
+  color: green;
+}
+.removegame{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+  padding: 5px;
+  border: 1px solid red;
+  color: red;
+  cursor: pointer;
+
+}
+
+.demo-loadmore-list {
+  min-height: 350px;
+}
+.loadmore {
+  text-align: center;
+  margin-top: 12px;
+  height: 32px;
+  line-height: 32px;
+}
+
+img {
+  max-width: 150px;
+  min-height: 200px;
+}
+.card {
+margin-top:40px;
+
+width: 70%;
+}
+
+.pagination{
+  padding-bottom: 20px;
+  margin-top: 30px;
+ 
+}

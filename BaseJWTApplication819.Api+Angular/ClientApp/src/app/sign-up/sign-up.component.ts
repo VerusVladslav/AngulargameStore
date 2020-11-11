@@ -27,33 +27,32 @@ export class SignUpComponent implements OnInit {
     this.notifier.hideAll();
     if (!this.model.isEmail()) {
       this.spinner.hide();
-      this.notifier.notify('error', "Please, enter correct email!");
-    }
-    else if (this.model.Password != this.confirmPassword) {
+      this.notifier.notify('error', 'Please, enter correct email!');
+    } else if (this.model.Password !== this.confirmPassword) {
       this.spinner.hide();
-      this.notifier.notify('error', "Password dont match!");
+      this.notifier.notify('error', 'Password dont match!');
     } else if (this.model.isValid()) {
       this.authService.SignUp(this.model).subscribe(
         data => {
           if (data.status === 200) {
-            this.notifier.notify('success', "You seccess registered in system!");
+            this.notifier.notify('success', 'You seccess registered in system!');
             this.router.navigate(['/sign-in']);
           }
+          // tslint:disable-next-line: one-line
           else {
-            for (var i = 0; i < data.errors.length; i++) {
+            for (let i = 0; i < data.errors.length; i++) {
               this.notifier.notify('error', data.errors[i]);
             }
           }
           setTimeout(() => {
-            this.spinner.hide()
+            this.spinner.hide();
           }, 1000);
 
         }
-      )
-    }
-    else {
+      );
+    } else {
       this.spinner.hide();
-      this.notifier.notify('error', "Please, enter all fieald for register!");
+      this.notifier.notify('error', 'Please, enter all fieald for register!');
     }
   }
 

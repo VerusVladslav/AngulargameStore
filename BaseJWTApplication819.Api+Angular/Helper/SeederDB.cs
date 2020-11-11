@@ -61,6 +61,7 @@ namespace BaseJWTApplication819.Api_Angular.Helper
 
             context.Games.Add(new Game
             {
+                GameKey = Guid.NewGuid().ToString(),
                 Title = "Far cry 6",
                 Price = 100,
                 Description = "Descript",
@@ -73,6 +74,7 @@ namespace BaseJWTApplication819.Api_Angular.Helper
 
             context.Games.Add(new Game
             {
+                GameKey = Guid.NewGuid().ToString(),
                 Title = "Dark souls 3",
                 Price = 100,
                 Description = "Descript",
@@ -85,6 +87,7 @@ namespace BaseJWTApplication819.Api_Angular.Helper
 
             context.Games.Add(new Game
             {
+                GameKey=Guid.NewGuid().ToString(),
                 Title = "Cyberpunk 2077",
                 Price = 100,
                 Description = "Descript",
@@ -130,8 +133,25 @@ namespace BaseJWTApplication819.Api_Angular.Helper
             var resultAndrii = userManager.CreateAsync(andrii, "Qwerty1-").Result;
             resultAndrii = userManager.AddToRoleAsync(andrii, "User").Result;
 
-         
-        }
+              
+                context.UserAdditionalInfos.Add(new UserAdditionalInfo
+                {
+                    Id = andrii.Id,
+                    Address = "MyAddress",
+                    Image = "default.jpg",
+                    FullName = "MyFullName"
+                });
+
+                context.UserAdditionalInfos.Add(new UserAdditionalInfo
+                {
+                    Id = admin.Id,
+                    Address = "MyAddress",
+                    Image = "default.jpg",
+                    FullName = "MyFullName"
+                });
+
+                context.SaveChanges();
+            }
         }
     }
 }

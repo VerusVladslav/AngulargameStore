@@ -16,3 +16,6 @@ C:\Repository\Angular\proj\JWT_Token_Project_819-master\BaseJWTApplication819.DT
 C:\Repository\Angular\proj\JWT_Token_Project_819-master\BaseJWTApplication819.DTO\obj\Debug\netcoreapp3.1\BaseJWTApplication819.DTO.csproj.CoreCompileInputs.cache
 C:\Repository\Angular\proj\JWT_Token_Project_819-master\BaseJWTApplication819.DTO\obj\Debug\netcoreapp3.1\BaseJWTApplication819.DTO.dll
 C:\Repository\Angular\proj\JWT_Token_Project_819-master\BaseJWTApplication819.DTO\obj\Debug\netcoreapp3.1\BaseJWTApplication819.DTO.pdb
+C:\Repository\Angular\proj\JWT_Token_Project_819-master\BaseJWTApplication819.DTO\bin\Debug\netcoreapp3.1\BaseJWTApplication819.DataAccess.dll
+C:\Repository\Angular\proj\JWT_Token_Project_819-master\BaseJWTApplication819.DTO\bin\Debug\netcoreapp3.1\BaseJWTApplication819.DataAccess.pdb
+C:\Repository\Angular\proj\JWT_Token_Project_819-master\BaseJWTApplication819.DTO\obj\Debug\netcoreapp3.1\BaseJWTApplication819.DTO.csproj.CopyComplete

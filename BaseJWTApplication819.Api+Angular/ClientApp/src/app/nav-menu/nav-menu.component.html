@@ -1,16 +1,23 @@
 <header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white  box-shadow mb-3">
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/']">Store</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+      <button class="navbar-toggler" type="button" data-toggle="collapse"  data-target=".navbar-collapse"
         aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
         <ul class="navbar-nav flex-grow">
+          <!-- <li  class="nav-item">
+            <form class="form-inline my-2 my-lg-0 form">
+              <input [(ngModel)]="search" name="search" autocomplete="off" class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0"   (click)="Search()" type="submit">Search</button>
+            </form>
+            </li> -->
           <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
+
           <li *ngIf="isLogin === false" class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/sign-in']">Sign In</a>
           </li>
@@ -20,10 +27,19 @@
           <li *ngIf="isLogin === true && isAdmin === true" class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/admin-panel']">Admin panel</a>
           </li>
+          <li *ngIf="isLogin === true " class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/client-panel']">Client panel</a>
+          </li>
+          <li *ngIf="isLogin === true" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark cart" [routerLink]="['/client-panel/order']">
+            <i nz-icon nzType="shopping-cart" (click)="GetOrder()" nzTheme="outline"></i>
+            </a>
+          </li>
           <li (click)="Logout()" *ngIf="isLogin == true" style="cursor: pointer;" class="nav-item"
             [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark">Logout</a>
           </li>
+
         </ul>
       </div>
     </div>

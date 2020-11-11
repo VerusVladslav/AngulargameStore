@@ -3,9 +3,11 @@ using BaseJWTApplication819.DataAccess;
 using BaseJWTApplication819.DataAccess.Entity;
 using BaseJWTApplication819.Domain.Implementations;
 using BaseJWTApplication819.Domain.Interfaces;
+using BaseJWTApplication819.DTO.Models.Pagination;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -33,11 +35,12 @@ namespace BaseJWTApplication819.Api_Angular
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-
+           
             services.AddDbContext<EFContext>(opt =>
                 opt.UseSqlServer(Configuration["ConnectionString"],
+                
                 b => b.MigrationsAssembly("BaseJWTApplication819.Api+Angular"))
-            );
+            ) ;
 
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<EFContext>()
@@ -53,6 +56,7 @@ namespace BaseJWTApplication819.Api_Angular
             });
 
             services.AddTransient<IJWTTokenService, JWTTokenService>();
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
 
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("SecretPhrase")));
@@ -107,6 +111,8 @@ namespace BaseJWTApplication819.Api_Angular
 
             app.UseRouting();
 
+            app.UseStaticFiles();
+
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -131,7 +137,7 @@ namespace BaseJWTApplication819.Api_Angular
             });
 
 
-          //  SeederDatabase.SeedData(app.ApplicationServices, env, Configuration);
+            //SeederDatabase.SeedData(app.ApplicationServices, env, Configuration);
 
         }
     }

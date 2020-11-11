@@ -29,6 +29,7 @@
     "jquery": "3.4.1",
     "jwt-decode": "^3.0.0",
     "ng-zorro-antd": "^8.5.2",
+    "ng2-search-filter": "^0.5.1",
     "ngx-spinner": "^10.0.1",
     "oidc-client": "^1.9.1",
     "popper.js": "^1.16.0",
